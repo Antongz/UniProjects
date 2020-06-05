@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <script src="jquery.js"></script>
+     
+       <meta charset="utf-8"/>
+        <title>Practical Excercise 3 - Part 3</title>
+        <style>
+            
+            body {
+                font-family: sans-serif;
+            }
+            
+            .container {
+                margin: 0;
+                padding: 0;
+            }
+            
+            .left {
+                float: left;
+            }
+            
+            .right {
+                float: right;
+            }
+            
+            .controls {
+                width: 240px;
+            }
+            
+            .date {
+                font-size: 0.8em;
+                font-weight: bold;
+                color: grey;
+            }
+            
+            h1,h2,h3 {
+                font-family: serif;
+            }
+        
+            #mcount {
+                background-color: cornflowerblue;
+                font-size: 3em;
+                margin: 0px 10px 10px 10px;
+                padding: 10px;
+                width: 100px;
+                height: 100px;
+                float: left;
+            }
+            
+            #posts {
+                border: 1px solid darkseagreen;
+                padding: 10px;
+                margin: 0px 10px 10px 150px;
+                min-height: 100px;
+            }
+            
+            hr {
+                clear: both;
+            }
+#txt{}
+          
+        </style>
+        
+    </head>
+
+    <body>
+        
+        <div id="main" class="container">
+            <button class="right">MENU</button>
+            <h1>Part 3 - Javascript Playground</h1>
+            <div id="mcount"><p></p></div>
+            <div id="posts"></div>
+            <hr />
+            <textarea id="txt" rows="4" cols="60">Type your text here...</textarea>
+            <br />
+            <div class="controls left">
+                <input type="number" name="quantity" value="1" /><br />
+                <input type="radio" name="color" value="blue" /> Blue<br />
+                <input type="radio" name="color" value="red" /> Red<br />
+                <button id="button">Post</button>
+            </div>
+            <div class="controls left"> 
+                <input type="range" name="visible" min="1" value="1"/><br />
+                <input type="checkbox" name="style" value="bold" /> Bold<br />
+                <input type="checkbox" name="style" value="italic" /> Italic<br />
+                <select>
+                    <option disabled selected value="-1">Choose a post to reply to</option>
+                </select>
+            </div>
+            <hr />
+        </div>
+        
+        <div id="menu" class="container" style="display:none;">
+            <button class="right">BACK</button>
+            <p>&nbsp;</p>
+            <span>Background Color:</span><input type="text">
+        </div>
+<script>
+var i= 0;
+$("div#mcount").mouseover(function(){
+$("p",this).text( ++i );
+});
+var $button=$("#button");
+var $posts=$("#posts");
+var $txt=$("#txt");
+var $date=Date();
+
+$button.click(function(){
+$posts.text($date);
+$posts.append($txt.text()).clone();
+})
+
+
+
+</script>
+
+
+</body>
+    
+</html>
